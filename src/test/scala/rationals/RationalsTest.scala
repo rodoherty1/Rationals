@@ -12,6 +12,7 @@ class RationalsTest extends FunSpec with ShouldMatchers {
 			val y = new Rational (1, 3)
 			
 			x.add(y) should equal (new Rational(5, 6))
+			x.add(y) should equal (new Rational(5, 6))
 		}
 		
 		it ("Confirms that two different Rational objects of equal value are equivalent") {

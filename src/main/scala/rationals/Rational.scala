@@ -14,11 +14,15 @@ class Rational (x: Int, y: Int) {
 		new Rational(numer * that.demon + that.numer * demon, demon * that.demon)
 	}
 	
+	def + (that: Rational) = add(that)
+	
 	def neg = new Rational(numer * -1, demon)
 	
 	def sub (that: Rational) : Rational = {
 		new Rational ((numer * that.demon) - (that.numer * demon), demon * that.demon);
 	}
+	
+	def - (that: Rational) = sub(that)
 	
 	def less (that: Rational) : Boolean = {
 		this.numer * that.demon < that.numer * this.demon
@@ -31,15 +35,27 @@ class Rational (x: Int, y: Int) {
 			this
 	}
 	
+	def *&^% (that: Rational) : Rational = {
+	  ???
+	}
+	
+	def simplify (r: Rational) = {
+	  	val g = Math.gcd(r.numer, r.demon)
+	  	new Rational(r.numer / g, r.demon / g)
+	}
+	
 	override def equals (that: Any) : Boolean = {
-		if (that.isInstanceOf[Rational])
-			numer == that.asInstanceOf[Rational].numer && demon == that.asInstanceOf[Rational].demon
-		else
+		if (that.isInstanceOf[Rational]) {
+			val _this = simplify(this)
+			val _that = simplify(that.asInstanceOf[Rational])
+			_this.numer == _that.numer && _this.demon == _that.demon
+		} else {
 			false
+		}
 	}
 	
 	override def toString = {
-	  	val g = Math.gcd(x, y)
+	  	val g = Math.gcd(numer, demon)
 	  	(numer / g) + "/" + (demon / g)
 	}
 }

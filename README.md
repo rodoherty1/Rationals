@@ -1,8 +1,14 @@
 Rationals
 =========
 
-Simple Rational Number fun ScalaTest, SBT and some rudimentary scala.
+This project is a simply demo of some SBT, ScalaTest and rudimentary Scala code (Rationals.scala).
 
-This project onlysimply contains some Scala code (Rationals.scala), a BDD test and an SBT file.
+##Some SBT commands
+```
+$ ~test
+$ test
+$ test-only -- -n {tag}   " where {tag} is a string that you have marked as a tag in one of your BDD tests.  Examples are quantum or rational
+```
+
 
 
